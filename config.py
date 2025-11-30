@@ -26,8 +26,8 @@ np.random.seed(SEED)
 ROOT = Path(__file__).parent
 
 # Arquivos de dados
-DATA_RAW = ROOT / "data" / "bootcamp_train.csv"      # dataset original
-DATA_PROCESSED = ROOT / "data" / "bootcamp_train_tratado.csv"  # dataset tratado (gerado pelo preprocess)
+DATA_RAW = ROOT / "data" / "Amia_train.csv"      # dataset original
+DATA_PROCESSED = ROOT / "data" / "dataset_tratado.csv"  # dataset tratado (gerado pelo preprocess)
 
 # Arquivos de modelo
 MODEL_PATH = ROOT / "models" / "modelo.pkl"          # modelo treinado salvo
@@ -104,4 +104,5 @@ def create_dirs():
 
 # Cria diretórios ao importar
 create_dirs()
+
 
