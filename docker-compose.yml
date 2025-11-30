@@ -1,0 +1,98 @@
+version: '3.8'
+
+services:
+  # Serviço principal do ML Pipeline
+  ml-pipeline:
+    build: .
+    container_name: ml-bootcamp-pipeline
+    volumes:
+      # Mount dos dados persistentes
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./predictions:/app/predictions
+      - ./metrics:/app/metrics
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+    environment:
+      - ML_PROJECT_ENV=docker
+      - PYTHONUNBUFFERED=1
+    networks:
+      - ml-network
+    command: python main.py
+    restart: unless-stopped
+
+  # Serviço para desenvolvimento/debug
+  ml-dev:
+    build: .
+    container_name: ml-bootcamp-dev
+    volumes:
+      - .:/app
+    environment:
+      - ML_PROJECT_ENV=development
+      - PYTHONUNBUFFERED=1
+    networks:
+      - ml-network
+    ports:
+      - "8888:8888"  # Para Jupyter
+      - "8000:8000"  # Para API futura
+    command: jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+    profiles:
+      - dev
+
+  # Serviço apenas para treinar modelo
+  ml-train:
+    build: .
+    container_name: ml-bootcamp-train
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+    environment:
+      - ML_PROJECT_ENV=training
+    networks:
+      - ml-network
+    command: python train.py
+    profiles:
+      - train
+
+  # Serviço apenas para avaliação
+  ml-evaluate:
+    build: .
+    container_name: ml-bootcamp-evaluate
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./predictions:/app/predictions
+      - ./metrics:/app/metrics
+    environment:
+      - ML_PROJECT_ENV=evaluation
+    networks:
+      - ml-network
+    command: python evaluate.py
+    profiles:
+      - evaluate
+
+  # Serviço para API integration
+  ml-api:
+    build: .
+    container_name: ml-bootcamp-api
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./predictions:/app/predictions
+    environment:
+      - ML_PROJECT_ENV=api
+    networks:
+      - ml-network
+    command: python dash.py
+    profiles:
+      - api
+
+networks:
+  ml-network:
+    driver: bridge
+
+volumes:
+  ml-data:
+  ml-models:
+  ml-predictions:
