@@ -2,17 +2,17 @@
 
 Integração de Inteligência Artificial e Realidade Aumentada para Análise Preditiva e Treinamento em Manutenção de Componentes da Estação Espacial Internacional.
 
-## 📋 Sobre o Projeto
+## Sobre o Projeto
 
 Este projeto propõe uma arquitetura inovadora para manutenção preditiva e assistida na Estação Espacial Internacional (ISS), combinando **Inteligência Artificial (IA)** para previsão de falhas com **Realidade Aumentada (RA)** para execução de procedimentos de manutenção.
 
-### 🎯 Objetivos Principais
+### Objetivos Principais
 
 - **Desenvolver modelos de IA** para análise preditiva de falhas em componentes críticos
 - **Implementar interface de RA** para treinamento e execução de manutenção
 - **Reduzir tempo de inatividade** e **minimizar erro humano** em ambientes de alto estresse
 
-## 🏗️ Arquitetura do Sistema
+## Arquitetura do Sistema
 
 ### Componentes Principais
 
@@ -35,7 +35,7 @@ Este projeto propõe uma arquitetura inovadora para manutenção preditiva e ass
 - **Protocolos**: Compatibilidade com MIL-STD-1553, CCSDS
 - **Latência**: Inferência determinística para manutenção crítica
 
-## 📊 Resultados e Performance
+## Resultados e Performance
 
 ### Desempenho dos Modelos de IA
 
@@ -53,7 +53,7 @@ Este projeto propõe uma arquitetura inovadora para manutenção preditiva e ass
 | Taxa de Erro Humano | 50-80% | [IEEE 2024] |
 | Retenção de Treinamento | 15-30% | [IJIRCCE 2023] |
 
-## 🚀 Casos de Uso
+## Casos de Uso
 
 ### Manutenção em Control Moment Gyros (CMGs)
 
