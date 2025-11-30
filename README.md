@@ -79,9 +79,9 @@ Fase 4: Validação → IA confirma normalização dos parâmetros
 ### Pré-processamento de Dados
 ```python
 # Pipeline de processamento
-1. Imputação por média móvel (50 amostras)
+1. Imputação pela mediana
 2. Normalização Z-score
-3. Amostragem estratificada (70/30)
+3. Amostragem estratificada (80/20)
 4. Engenharia de atributos
 ```
 
