@@ -79,23 +79,22 @@ Fase 4: Validação → IA confirma normalização dos parâmetros
 2. Normalização Z-score
 3. Amostragem estratificada (70/30)
 4. Engenharia de atributos
+```
 
 ## Hiperparâmetros do Modelo
-Random Forest: 100 estimadores, profundidade máxima 20
 
-Critério: Entropia para maximizar ganho de informação
+- Random Forest: 100 estimadores, profundidade máxima 20.
+- Critério: Entropia para maximizar ganho de informação.
+- Features: √n features por split.
 
-Features: √n features por split
+## Configuração de RA
 
-Configuração de RA
-Rastreamento: IMU + visão computacional
-
-Renderização: Otimizada para microgravidade
-
-Latência: < 50ms para interação crítica
+- Rastreamento: IMU + visão computacional.
+- Renderização: Otimizada para microgravidade.
+- Latência: < 50ms para interação crítica.
 
 ## Estrutura do Projeto
-
+```
 amia-iss/
 ├── data/
 │   ├── raw/                 # Dados brutos de telemetria
@@ -109,6 +108,7 @@ amia-iss/
 ├── docs/                    # Documentação técnica
 ├── tests/                   # Testes unitários e integração
 └── simulations/             # Ambientes de simulação
+```
 
 ## Instalação e Uso
 Pré-requisitos
@@ -121,43 +121,35 @@ OpenCV 4.5+
 Unity 2022.3+ (para módulo RA)
 
 ## Instalação
+```
 git clone https://github.com/seu-usuario/amia-iss.git
 cd amia-iss
 pip install -r requirements.txt
-
+```
 ## Execução
 # Treinamento do modelo de IA
+```
 python src/prediction/train_model.py
-
+```
 # Simulação do sistema de RA
+```
 python src/ar_interface/simulate_ar.py
+```
 
+## Validação e Testes
+### Ambientes de Teste
+- Simulação Terra: Validação funcional completa
+- Ambiente Análogo Espacial: Testes em microgravidade simulada
+- ISS (Futuro): Implementação operacional
 
-Validação e Testes
-Ambientes de Teste
-Simulação Terra: Validação funcional completa
-
-Ambiente Análogo Espacial: Testes em microgravidade simulada
-
-ISS (Futuro): Implementação operacional
-
-Métricas de Validação
-Acurácia de Previsão: > 97%
-
-Latência de Inferência: < 100ms
-
-Precisão de Rastreamento RA: < 2mm
-
-Tempo de Resposta do Sistema: < 5 segundos
+## Métricas de Validação
+- Acurácia de Previsão: > 97%
+- Latência de Inferência: < 100ms
+- Precisão de Rastreamento RA: < 2mm
+- Tempo de Resposta do Sistema: < 5 segundos
 
 ## Contribuição
-Interessado em contribuir? Veja nosso:
-
-Guia de Contribuição
-
-Código de Conduta
-
-Roadmap do Projeto
+Interessado em contribuir? Veja nosso: entre em contato
 
 ## Licença
 Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para detalhes.
