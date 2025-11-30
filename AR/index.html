@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Manual AR (by Leonardo😉)</title>
+    
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.5/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-animation-component@5.1.2/dist/aframe-animation-component.min.js"></script>
+    
+    <style>
+        body { 
+            margin: 0; 
+            overflow: hidden; 
+            font-family: Arial, sans-serif;
+        }
+        
+        #ui-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .logo {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+        
+        #ui-overlay h2 {
+            margin: 0 0 15px 0;
+            font-size: 1.8em;
+            color: #4fc3f7;
+        }
+        
+        .instructions {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 600px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .instructions p {
+            margin: 12px 0;
+            line-height: 1.5;
+            font-size: 1em;
+        }
+        
+        .instructions strong {
+            color: #4fc3f7;
+        }
+        
+        #startButton {
+            background: linear-gradient(135deg, #4fc3f7, #2196f3);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        
+        #startButton:hover {
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+            transform: scale(1.05);
+        }
+        
+        #instructions {
+            position: absolute; 
+            bottom: 20px; 
+            left: 50%;
+            transform: translateX(-50%); 
+            background: rgba(0, 0, 0, 0.85);
+            color: white; 
+            padding: 15px 30px; 
+            border-radius: 12px;
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            z-index: 1000;
+            display: none;
+            transition: opacity 0.5s ease;
+        }
+
+        #animation-status {
+            position: absolute; 
+            top: 20px; 
+            left: 50%;
+            transform: translateX(-50%); 
+            background: rgba(0, 150, 0, 0.85);
+            color: white; 
+            padding: 10px 20px; 
+            border-radius: 8px;
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            z-index: 1000;
+            display: none;
+            font-size: 14px;
+        }
+        
+        #closeButton {
+            position: absolute; 
+            top: 20px; 
+            right: 20px;
+            width: 50px; 
+            height: 50px;
+            background: rgba(255, 0, 0, 0.85);
+            border: 2px solid white; 
+            border-radius: 50%;
+            cursor: pointer; 
+            z-index: 1001;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            font-size: 28px; 
+            color: white; 
+            font-weight: bold;
+            font-family: Arial, sans-serif; 
+            user-select: none;
+        }
+
+        .fade-out {
+            opacity: 0 !important;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="ui-overlay">
+        <div class="logo">🚀 TREINAMENTO AR</div>
+        <h2>Manutenção Aeroespacial</h2>
+
+        <div class="instructions">
+            <p>Este simulador permite treinar procedimentos de manutenção em equipamentos espaciais usando Realidade Aumentada.</p>
+            <p><strong>Requisitos:</strong></p>
+            <p>1. Câmera com permissão de uso.<br>
+               2. Marcador Hiro impresso ou exibido em outra tela.</p>
+            <p><strong>Instruções:</strong></p>
+            <p>1. Clique em Iniciar e conceda a permissão da câmera.<br>
+               2. Aponte a câmera para o marcador Hiro.<br>
+               3. Toque no modelo para iniciar a explosão<br>
+               4. Toque novamente para pausar/continuar<br>
+               5. Toque mais uma vez para finalizar</p>
+        </div>
+        
+        <button id="startButton">INICIAR TREINAMENTO</button>
+    </div>
+
+    <div id="instructions">
+        Aponte a câmera para o marcador Hiro
+    </div>
+
+    <div id="animation-status"></div>
+
+    <div id="closeButton">X</div>
+
+    <a-scene
+        embedded
+        arjs="sourceType: webcam; debugUIEnabled: false;"
+        vr-mode-ui="enabled: false"
+        renderer="logarithmicDepthBuffer: true;"
+        gesture-detector
+        style="display: none;"
+    >
+        
+        <a-assets>
+            <a-asset-item id="test-model" src="pneumatic.glb"></a-asset-item>
+        </a-assets>
+        
+        <a-entity camera></a-entity>
+
+        <a-marker 
+            preset="hiro" 
+            id="marker" 
+            raycaster="objects: .clickable" 
+            emitevents="true" 
+            cursor="fuse: false; rayOrigin: mouse;"
+        >
+            
+            <a-entity id="model-container" position="0 0.5 0">
+                
+                <a-light type="ambient" color="#ffffff" intensity="1.2"></a-light>
+                <a-light type="directional" color="#ffffff" intensity="1.5" position="2 4 2"></a-light>
+
+                <a-entity
+                    id="model"
+                    class="clickable"
+                    gltf-model="#test-model" 
+                    scale="0.015 0.015 0.015" 
+                    position="0 0.3 0.2" 
+                    rotation="0 180 0" 
+                    gesture-handler 
+                >
+                </a-entity>
+                
+            </a-entity>
+        </a-marker>
+    </a-scene>
+
+    <script>
+        // Controle da interface
+        const uiOverlay = document.getElementById('ui-overlay');
+        const startButton = document.getElementById('startButton');
+        const scene = document.querySelector('a-scene');
+        const instructions = document.getElementById('instructions');
+        const animationStatus = document.getElementById('animation-status');
+        
+        startButton.addEventListener('click', function() {
+            uiOverlay.style.display = 'none';
+            scene.style.display = 'block';
+            instructions.style.display = 'block';
+            
+            // Faz a instrução desaparecer após 10 segundos
+            setTimeout(function() {
+                instructions.classList.add('fade-out');
+                setTimeout(function() {
+                    instructions.style.display = 'none';
+                }, 500);
+            }, 10000);
+        });
+
+        // COMPONENTE 1: DETECTOR DE GESTOS
+        AFRAME.registerComponent('gesture-detector', {
+            schema: { enabled: { default: true } },
+            init: function() {
+                this.handleTap = this.handleTap.bind(this);
+                this.handleTouchStart = this.handleTouchStart.bind(this);
+                this.handleTouchEnd = this.handleTouchEnd.bind(this);
+                this.handleTouchMove = this.handleTouchMove.bind(this);
+                this.startX = 0; this.startY = 0;
+                this.isDragging = false; this.moved = false;
+            },
+            play: function() {
+                const canvas = this.el.sceneEl.canvas;
+                canvas.addEventListener('click', this.handleTap);
+                canvas.addEventListener('touchstart', this.handleTouchStart);
+                canvas.addEventListener('touchend', this.handleTouchEnd);
+                canvas.addEventListener('touchmove', this.handleTouchMove);
+            },
+            pause: function() {
+                const canvas = this.el.sceneEl.canvas;
+                canvas.removeEventListener('click', this.handleTap);
+                canvas.removeEventListener('touchstart', this.handleTouchStart);
+                canvas.removeEventListener('touchend', this.handleTouchEnd);
+                canvas.removeEventListener('touchmove', this.handleTouchMove);
+            },
+            handleTap: function(evt) { this.el.emit('gesture-tap', evt); },
+            handleTouchStart: function(evt) {
+                if (evt.touches && evt.touches.length === 1) {
+                    this.startX = evt.touches[0].clientX;
+                    this.startY = evt.touches[0].clientY;
+                    this.startTime = Date.now();
+                    this.isDragging = false; this.moved = false;
+                }
+                this.el.emit('gesture-pressstart', evt);
+            },
+            handleTouchMove: function(evt) {
+                if (evt.touches && evt.touches.length === 1) {
+                    const deltaX = evt.touches[0].clientX - this.startX;
+                    const deltaY = evt.touches[0].clientY - this.startY;
+                    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                    
+                    if (distance > 15) {
+                        this.moved = true; this.isDragging = true;
+                        this.el.emit('gesture-drag', { deltaX: deltaX, deltaY: deltaY });
+                    }
+                }
+            },
+            handleTouchEnd: function(evt) {
+                const touchDuration = Date.now() - this.startTime;
+                if (!this.moved && touchDuration < 300) {
+                    this.el.emit('gesture-tap', evt);
+                }
+                this.el.emit('gesture-pressend', evt);
+                this.isDragging = false; this.moved = false;
+            }
+        });
+
+        // COMPONENTE 2: GERENCIADOR DE INTERAÇÕES SIMPLIFICADO
+        AFRAME.registerComponent('gesture-handler', {
+            schema: {
+                enabled: { default: true },
+                scaleMin: { default: 1.2 }, 
+                scaleMax: { default: 5 }
+            },
+            init: function() {
+                this.initialScale = this.el.object3D.scale.clone();
+                this.currentScale = 1; 
+                this.isPressed = false;
+                this.scaleInterval = null; 
+                this.lastDragX = 0;
+                this.lastDragY = 0;
+                
+                // Estados da animação - SOLUÇÃO SIMPLIFICADA
+                this.animationState = 'stopped'; // stopped, playing, paused
+                this.originalPosition = new THREE.Vector3();
+                this.originalRotation = new THREE.Euler();
+                this.originalScale = new THREE.Vector3();
+                
+                this.onTap = this.onTap.bind(this);
+                this.onPressStart = this.onPressStart.bind(this);
+                this.onPressEnd = this.onPressEnd.bind(this);
+                this.onDrag = this.onDrag.bind(this);
+                
+                const sceneEl = this.el.sceneEl;
+                sceneEl.addEventListener('gesture-tap', this.onTap);
+                sceneEl.addEventListener('gesture-pressstart', this.onPressStart);
+                sceneEl.addEventListener('gesture-pressend', this.onPressEnd);
+                sceneEl.addEventListener('gesture-drag', this.onDrag);
+                
+                // Guarda a posição/orientação original para estabilidade
+                this.el.addEventListener('model-loaded', () => {
+                    const model = this.el.getObject3D('mesh');
+                    if (model) {
+                        model.getWorldPosition(this.originalPosition);
+                        model.getWorldRotation(this.originalRotation);
+                        model.getWorldScale(this.originalScale);
+                    }
+                });
+            },
+            
+            // SOLUÇÃO SIMPLIFICADA: Usa animation-mixer do A-Frame
+            onTap: function(evt) {
+                switch(this.animationState) {
+                    case 'stopped':
+                        this.startAnimation();
+                        break;
+                        
+                    case 'playing':
+                        this.pauseAnimation();
+                        break;
+                        
+                    case 'paused':
+                        this.resumeAnimation();
+                        break;
+                }
+            },
+            
+            startAnimation: function() {
+                // Remove qualquer animação anterior
+                this.el.removeAttribute('animation-mixer');
+                
+                // Pequeno delay para garantir que a animação anterior foi removida
+                setTimeout(() => {
+                    this.el.setAttribute('animation-mixer', {
+                        clip: '*',
+                        loop: 'once',
+                        timeScale: 1,
+                        clampWhenFinished: true
+                    });
+                    
+                    this.animationState = 'playing';
+                    this.showStatus('Animação INICIADA - Toque para PAUSAR');
+                    console.log('Animação iniciada');
+                    
+                    // Configura timeout para detectar fim da animação
+                    this.animationTimeout = setTimeout(() => {
+                        if (this.animationState === 'playing') {
+                            this.animationState = 'stopped';
+                            this.showStatus('Animação FINALIZADA - Toque para REINICIAR');
+                        }
+                    }, 5000); // Ajuste este tempo conforme a duração da sua animação
+                }, 50);
+            },
+            
+            pauseAnimation: function() {
+                const mixer = this.el.components['animation-mixer'];
+                if (mixer && mixer.mixer) {
+                    mixer.mixer.timeScale = 0;
+                    this.animationState = 'paused';
+                    this.showStatus('Animação PAUSADA - Toque para CONTINUAR');
+                    console.log('Animação pausada');
+                    
+                    // Cancela o timeout de fim de animação
+                    if (this.animationTimeout) {
+                        clearTimeout(this.animationTimeout);
+                        this.animationTimeout = null;
+                    }
+                }
+            },
+            
+            resumeAnimation: function() {
+                const mixer = this.el.components['animation-mixer'];
+                if (mixer && mixer.mixer) {
+                    mixer.mixer.timeScale = 1;
+                    this.animationState = 'playing';
+                    this.showStatus('Animação CONTINUANDO - Toque para PAUSAR');
+                    console.log('Animação continuando');
+                    
+                    // Reconfigura timeout para detectar fim da animação
+                    this.animationTimeout = setTimeout(() => {
+                        if (this.animationState === 'playing') {
+                            this.animationState = 'stopped';
+                            this.showStatus('Animação FINALIZADA - Toque para REINICIAR');
+                        }
+                    }, 5000);
+                }
+            },
+            
+            showStatus: function(message) {
+                animationStatus.textContent = message;
+                animationStatus.style.display = 'block';
+                
+                if (this.animationState === 'paused') {
+                    animationStatus.style.background = 'rgba(255, 165, 0, 0.85)';
+                } else {
+                    animationStatus.style.background = 'rgba(0, 150, 0, 0.85)';
+                }
+                
+                setTimeout(() => {
+                    animationStatus.style.display = 'none';
+                }, 3000);
+            },
+            
+            // ROTAÇÃO ESTABILIZADA
+            onDrag: function(evt) {
+                const deltaX = evt.detail.deltaX;
+                const deltaY = evt.detail.deltaY;
+                
+                const dragDeltaX = deltaX - this.lastDragX;
+                const dragDeltaY = deltaY - this.lastDragY;
+                
+                this.lastDragX = deltaX;
+                this.lastDragY = deltaY;
+                
+                const currentRotation = this.el.getAttribute('rotation');
+                const rotationSpeed = 0.3; // Reduzido para mais suavidade
+                
+                // Aplica rotação suavemente
+                this.el.setAttribute('rotation', {
+                    x: currentRotation.x - (dragDeltaY * rotationSpeed),
+                    y: currentRotation.y + (dragDeltaX * rotationSpeed),
+                    z: currentRotation.z
+                });
+                
+                this.isPressed = false;
+                if (this.scaleInterval) {
+                    clearInterval(this.scaleInterval);
+                    this.scaleInterval = null;
+                }
+            },
+            
+            // PRESSIONAR ESTABILIZADO
+            onPressStart: function(evt) {
+                this.isPressed = true;
+                this.scaleInterval = setInterval(() => {
+                    if (this.isPressed && this.currentScale < this.data.scaleMax) {
+                        this.currentScale += 0.04; // Reduzido para mais suavidade
+                        if (this.currentScale > this.data.scaleMax) {
+                            this.currentScale = this.data.scaleMax;
+                        }
+                        this.el.object3D.scale.set(
+                            this.initialScale.x * this.currentScale,
+                            this.initialScale.y * this.currentScale,
+                            this.initialScale.z * this.currentScale
+                        );
+                    }
+                }, 50);
+            },
+            
+            // FIM DO PRESSIONAR
+            onPressEnd: function(evt) {
+                this.isPressed = false;
+                this.lastDragX = 0; 
+                this.lastDragY = 0;
+                
+                if (this.scaleInterval) {
+                    clearInterval(this.scaleInterval);
+                    this.scaleInterval = null;
+                }
+                
+                // Animação de escala mais suave
+                this.el.setAttribute('animation__scaledown', {
+                    property: 'scale',
+                    to: { x: this.initialScale.x, y: this.initialScale.y, z: this.initialScale.z },
+                    dur: 800, // Aumentado para mais suavidade
+                    easing: 'easeOutCubic', 
+                    loop: false
+                });
+                this.currentScale = 1;
+            },
+            
+            // TICK PARA ESTABILIDADE
+            tick: function() {
+                // Força estabilidade na posição/orientação se necessário
+                if (this.animationState === 'paused') {
+                    const model = this.el.getObject3D('mesh');
+                    if (model) {
+                        // Mantém a posição/orientação estável durante pausa
+                        model.position.set(0, 0, 0);
+                        model.updateMatrixWorld(true);
+                    }
+                }
+            }
+        });
+        
+        // SCRIPT BOTÃO FECHAR
+        const closeButton = document.getElementById('closeButton');
+        closeButton.addEventListener('click', function() {
+            if (confirm('Deseja realmente sair do WebAR?')) {
+                const video = document.querySelector('video');
+                if (video && video.srcObject) {
+                    const tracks = video.srcObject.getTracks();
+                    tracks.forEach(track => track.stop());
+                }
+                if (window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    window.close();
+                    setTimeout(() => {
+                        document.body.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100vh; font-family: Arial; flex-direction: column;"><h1>WebAR Encerrado</h1><p>Você pode fechar esta aba.</p></div>';
+                    }, 100);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
