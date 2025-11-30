@@ -3,7 +3,7 @@
 """
 DASH.PY - VERSÃO CORRIGIDA BASEADA NA DOCUMENTAÇÃO OFICIAL
 ----------------------
-- Integra com a API de avaliação do bootcamp
+- Integra com a API de avaliação 
 - Usa apenas registro (não há endpoint de login)
 - Gera predições no formato necessário para a API
 - Envia para avaliação e recebe métricas
@@ -419,4 +419,5 @@ def main():
         print(f"\n💡 Se o problema persistir, use o dashboard: http://34.193.187.218:8501")
 
 if __name__ == "__main__":
+
     main()
