@@ -107,7 +107,7 @@ amia-iss/
 │   └── utils/               # Utilitários comuns
 ├── docs/                    # Documentação técnica
 ├── tests/                   # Testes unitários e integração
-└── simulations/             # Ambientes de simulação
+└── Iss-Visualizador/        # Ambientes de simulação
 ```
 
 ## Instalação e Uso
