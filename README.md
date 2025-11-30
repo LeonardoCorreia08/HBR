@@ -112,19 +112,10 @@ amia-iss/
 ## Visualizacao do ambiente 
 
 [Projeto](https://iss-visualizador.vercel.app/)
-<p align="center"><img src="./assets/visao 1.PNG" width="500"></p>
-<p align="center"><img src="./assets/visao2.PNG" width="500"></p>
-
 ---
-
-### 🎥 Demonstração em Vídeo
-[▶️ Assistir Vídeo de Demonstração](./assets/pneuma.mp4)
-
-<div align="center">
-  <video src="./assets/pneuma.mp4" width="500" controls>
-    Seu navegador não suporta a tag de vídeo.
-  </video>
-</div>
+<p align="center"><img src="./assets/visao 1.PNG" width="500"></p>
+---
+<p align="center"><img src="./assets/visao2.PNG" width="500"></p>
 ---
 
 ## Instalação e Uso
