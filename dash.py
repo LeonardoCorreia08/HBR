@@ -128,7 +128,7 @@ def generate_predictions_csv(model_path, data_path, output_path, threshold=0.5):
     print(f"📊 Range das predições: [{predictions_proba.min():.4f}, {predictions_proba.max():.4f}]")
     
     # Criar DataFrame com formato esperado pela API
-    # Baseado no exemplo bootcamp_submission_example.csv
+    # Baseado no exemplo submission_example.csv
     predictions_df = pd.DataFrame()
     
     # Colunas esperadas pela API (usando config.py)
@@ -421,4 +421,5 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
