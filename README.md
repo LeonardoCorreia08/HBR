@@ -64,3 +64,101 @@ Este projeto propõe uma arquitetura inovadora para manutenção preditiva e ass
 3. **Resultado**: Reparo preciso com redução de 40% no tempo
 
 ### Fluxo Operacional Típico
+Fase 1: Detecção (T-72h) → IA identifica anomalia
+Fase 2: Intervenção (T-24h) → Sistema gera ordem de serviço
+Fase 3: Execução → RA guia reparo passo a passo
+Fase 4: Validação → IA confirma normalização dos parâmetros
+
+
+##  Implementação Técnica
+
+### Pré-processamento de Dados
+```python
+# Pipeline de processamento
+1. Imputação por média móvel (50 amostras)
+2. Normalização Z-score
+3. Amostragem estratificada (70/30)
+4. Engenharia de atributos
+
+## Hiperparâmetros do Modelo
+Random Forest: 100 estimadores, profundidade máxima 20
+
+Critério: Entropia para maximizar ganho de informação
+
+Features: √n features por split
+
+Configuração de RA
+Rastreamento: IMU + visão computacional
+
+Renderização: Otimizada para microgravidade
+
+Latência: < 50ms para interação crítica
+
+## Estrutura do Projeto
+
+amia-iss/
+├── data/
+│   ├── raw/                 # Dados brutos de telemetria
+│   ├── processed/           # Dados pré-processados
+│   └── models/              # Modelos treinados
+├── src/
+│   ├── prediction/          # Módulos de IA preditiva
+│   ├── ar_interface/        # Sistema de realidade aumentada
+│   ├── integration/         # Integração com sistemas ISS
+│   └── utils/               # Utilitários comuns
+├── docs/                    # Documentação técnica
+├── tests/                   # Testes unitários e integração
+└── simulations/             # Ambientes de simulação
+
+## Instalação e Uso
+Pré-requisitos
+Python 3.8+
+
+TensorFlow 2.8+
+
+OpenCV 4.5+
+
+Unity 2022.3+ (para módulo RA)
+
+## Instalação
+git clone https://github.com/seu-usuario/amia-iss.git
+cd amia-iss
+pip install -r requirements.txt
+
+## Execução
+# Treinamento do modelo de IA
+python src/prediction/train_model.py
+
+# Simulação do sistema de RA
+python src/ar_interface/simulate_ar.py
+
+
+Validação e Testes
+Ambientes de Teste
+Simulação Terra: Validação funcional completa
+
+Ambiente Análogo Espacial: Testes em microgravidade simulada
+
+ISS (Futuro): Implementação operacional
+
+Métricas de Validação
+Acurácia de Previsão: > 97%
+
+Latência de Inferência: < 100ms
+
+Precisão de Rastreamento RA: < 2mm
+
+Tempo de Resposta do Sistema: < 5 segundos
+
+## Contribuição
+Interessado em contribuir? Veja nosso:
+
+Guia de Contribuição
+
+Código de Conduta
+
+Roadmap do Projeto
+
+## Licença
+Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para detalhes.
+
