@@ -169,7 +169,7 @@ def main():
     Função principal com argumentos de linha de comando
     """
     parser = argparse.ArgumentParser(
-        description="Pipeline ML - Bootcamp CDIA",
+        description="Pipeline ML ",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Exemplos de uso:
@@ -219,3 +219,4 @@ Exemplos de uso:
 if __name__ == "__main__":
 
     main()
+
