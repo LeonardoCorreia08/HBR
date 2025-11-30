@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./assets/logo02.png" width="500" alt="HBR">
+</p>
+
 # AMIA: Manutenção Inteligente e Assistida para a ISS
 
 Integração de Inteligência Artificial e Realidade Aumentada para Análise Preditiva e Treinamento em Manutenção de Componentes da Estação Espacial Internacional.
