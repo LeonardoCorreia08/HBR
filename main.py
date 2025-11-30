@@ -3,7 +3,7 @@
 """
 MAIN.PY - Pipeline Principal
 ============================
-Executa o pipeline completo de ML do projeto Bootcamp CDIA
+Executa o pipeline completo de ML do projeto  CDIA
 """
 
 import os
@@ -217,4 +217,5 @@ Exemplos de uso:
     sys.exit(0 if success else 1)
 
 if __name__ == "__main__":
+
     main()
