@@ -114,7 +114,7 @@ def run_full_pipeline():
     # Verificar se arquivo de dados existe
     if not config.DATA_RAW.exists():
         logger.error(f"❌ Arquivo de dados não encontrado: {config.DATA_RAW}")
-        logger.info("💡 Certifique-se de que bootcamp_train.csv está em data/")
+        logger.info("💡 Certifique-se de que Amia_train.csv está em data/")
         return False
     
     steps = [
@@ -219,4 +219,5 @@ Exemplos de uso:
 if __name__ == "__main__":
 
     main()
+
 
