@@ -211,13 +211,11 @@ python dash.py
 
 # 📉 Percurso Analítico
 
-[Análise Exploratória](https://github.com/LeonardoCorreia08/Bootcamp_US/blob/main/resultado/Analise.md)
-
-[Data Storytelling](https://github.com/LeonardoCorreia08/Bootcamp_US/blob/main/resultado/Data%20Storytelling.pdf)
+[Análise Exploratória](https://github.com/LeonardoCorreia08/HBR/blob/main/resultado/Analise.md)
 
 [Online](https://colab.research.google.com/drive/1gHTJ6rKk-_u5WLWe8Mzz09vRgxUXg1bO#scrollTo=6pXKiTte9kXx&uniqifier=1)
 
-[Relatório](https://github.com/LeonardoCorreia08/Bootcamp_US/blob/main/)
+[Relatório](https://github.com/LeonardoCorreia08/Bootcamp_US/blob/main/relatorio_manutencao_preditiva.html)
 
 ---
 # 💻 Tecnologias Utilizadas
