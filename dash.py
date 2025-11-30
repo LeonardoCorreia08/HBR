@@ -73,7 +73,7 @@ def register_user(email, password):
 def generate_predictions_csv(model_path, data_path, output_path, threshold=0.5):
     """
     Gera arquivo CSV com predições no formato esperado pela API
-    Baseado no bootcamp_submission_example.csv
+    Baseado no submission_example.csv
     """
     print("🔮 Gerando predições para API...")
     
@@ -421,3 +421,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
