@@ -8,7 +8,7 @@
 
 ---
 
-## 🚀 Sobre o Projeto
+##  Sobre o Projeto
 
 Este projeto propõe uma **arquitetura inovadora e de alto impacto** para a manutenção preditiva e assistida na Estação Espacial Internacional (ISS). A solução, denominada **AMIA (Assistência e Manutenção Inteligente e Aumentada)**, combina o poder da **Inteligência Artificial (IA)** para a previsão de falhas com a imersão da **Realidade Aumentada (RA)** para a execução precisa de procedimentos de manutenção.
 
@@ -22,7 +22,7 @@ O AMIA foi desenvolvido para enfrentar os desafios críticos da manutenção esp
 
 ---
 
-## 🛠️ Arquitetura do Sistema
+##  Arquitetura do Sistema
 
 A solução é composta por três módulos principais, projetados para operar de forma integrada e autônoma.
 
@@ -58,7 +58,7 @@ Garante a operacionalidade e a baixa latência do sistema no ambiente espacial.
 
 ---
 
-## 📈 Resultados e Performance
+##  Resultados e Performance
 
 ### Desempenho dos Modelos de IA
 
@@ -82,7 +82,7 @@ O uso da Realidade Aumentada é suportado por estudos que demonstram seu potenci
 
 ---
 
-## 💡 Casos de Uso e Fluxo Operacional
+##  Casos de Uso e Fluxo Operacional
 
 ### Exemplo: Manutenção em Control Moment Gyros (CMGs)
 
@@ -104,11 +104,11 @@ Os CMGs são cruciais para o controle de atitude da ISS.
 
 ---
 
-## 💻 Guia de Execução e Instalação
+##  Guia de Execução e Instalação
 
 Este guia detalha como configurar e executar o pipeline de Machine Learning e o Dashboard de visualização.
 
-### 📂 Estrutura do Projeto
+### Estrutura do Projeto
 
 O código foi organizado de forma **modular** para garantir clareza, escalabilidade e fácil manutenção.
 
@@ -132,13 +132,13 @@ amia-iss/
   <img src="./assets/estrutura.PNG" width="500" alt="Estrutura do Projeto">
 </p>
 
-### ✅ Pré-requisitos
+###  Pré-requisitos
 
 - Python **3.9 ou superior**
 - `pip` (gerenciador de pacotes do Python)
 - **Para o Módulo RA (Simulação):** Unity 2022.3+, TensorFlow 2.8+, OpenCV 4.5+
 
-### 📥 Instalação
+###  Instalação
 
 1.  **Clonar o Repositório:**
     ```bash
@@ -161,7 +161,7 @@ amia-iss/
     pip install -r requirements.txt
     ```
 
-### ⚙️ Execução do Pipeline de IA
+###  Execução do Pipeline de IA
 
 O script `main.py` orquestra o pipeline completo de Machine Learning (Configuração → Pré-processamento → Treino → Avaliação → Salvamento).
 
@@ -169,7 +169,7 @@ O script `main.py` orquestra o pipeline completo de Machine Learning (Configura�
 python main.py
 ```
 
-### 📊 Execução do Dashboard Streamlit
+###  Execução do Dashboard Streamlit
 
 Visualize e interaja com o modelo de Manutenção Preditiva.
 
@@ -184,7 +184,7 @@ Visualize e interaja com o modelo de Manutenção Preditiva.
   <img src="assets/streamlit.PNG" width="400" alt="Dashboard Streamlit">
 </p>
 
-### 🔗 Outras Execuções
+###  Outras Execuções
 
 - **Execução da API de Avaliação:**
     ```bash
@@ -197,7 +197,7 @@ Visualize e interaja com o modelo de Manutenção Preditiva.
 
 ---
 
-## 🌐 Visualização e Recursos Adicionais
+##  Visualização e Recursos Adicionais
 
 - **Visualizador do Ambiente ISS:** [Acesse o Projeto](https://iss-visualizador.vercel.app/)
 - **Análise Exploratória de Dados (EDA):** [Acesse o Relatório](https://github.com/LeonardoCorreia08/HBR/blob/main/resultado/Analise.md)
@@ -208,7 +208,7 @@ Visualize e interaja com o modelo de Manutenção Preditiva.
 
 ---
 
-## 💻 Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 | Categoria | Tecnologias |
 | :--- | :--- |
@@ -222,10 +222,10 @@ Visualize e interaja com o modelo de Manutenção Preditiva.
 
 ---
 
-## 🤝 Contribuição
+##  Contribuição
 
 Interessado em contribuir? Entre em contato com o autor para discutir oportunidades de colaboração.
 
-## 📄 Licença
+## Licença
 
 Este projeto está licenciado sob a **Licença MIT** - veja o arquivo `LICENSE` para detalhes.
