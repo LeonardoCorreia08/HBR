@@ -217,7 +217,7 @@ Visualize e interaja com o modelo de Manutenção Preditiva.
 | **Visualização** | Matplotlib, Seaborn, Ydata-profiling |
 | **APIs e Deploy** | FastAPI, Uvicorn, Docker |
 | **Dashboard** | Streamlit |
-| **RA (Simulação)** | Unity, TensorFlow, OpenCV |
+| **RA (Simulação)** | Unity, TensorFlow, OpenCV, A-Frame 1.4.2, AR.js 3.4.5, Three.js, JavaScript ES6 |
 | **Automação** | GitHub Actions |
 
 ---
