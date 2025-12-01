@@ -1,243 +1,117 @@
-<p align="center">
-  <img src="./assets/logo02.png" width="500" alt="HBR">
-</p>
-
 # AMIA: Manutenção Inteligente e Assistida para a ISS
 
-Integração de Inteligência Artificial e Realidade Aumentada para Análise Preditiva e Treinamento em Manutenção de Componentes da Estação Espacial Internacional.
+<p align="center">
+  <img src="./assets/logo02.png" width="500" alt="AMIA Logo">
+</p>
 
-## Sobre o Projeto
+**Integração de Inteligência Artificial e Realidade Aumentada para Análise Preditiva e Assistência em Manutenção de Componentes Críticos da Estação Espacial Internacional (ISS).**
 
-Este projeto propõe uma arquitetura inovadora para manutenção preditiva e assistida na Estação Espacial Internacional (ISS), combinando **Inteligência Artificial (IA)** para previsão de falhas com **Realidade Aumentada (RA)** para execução de procedimentos de manutenção.
+---
 
-### Objetivos Principais
+## 🚀 Sobre o Projeto
 
-- **Desenvolver modelos de IA** para análise preditiva de falhas em componentes críticos
-- **Implementar interface de RA** para treinamento e execução de manutenção
-- **Reduzir tempo de inatividade** e **minimizar erro humano** em ambientes de alto estresse
+Este projeto propõe uma **arquitetura inovadora e de alto impacto** para a manutenção preditiva e assistida na Estação Espacial Internacional (ISS). A solução, denominada **AMIA (Assistência e Manutenção Inteligente e Aumentada)**, combina o poder da **Inteligência Artificial (IA)** para a previsão de falhas com a imersão da **Realidade Aumentada (RA)** para a execução precisa de procedimentos de manutenção.
 
-## Arquitetura do Sistema
+### Objetivos Estratégicos
 
-### Componentes Principais
+O AMIA foi desenvolvido para enfrentar os desafios críticos da manutenção espacial, visando:
 
-#### 1. Módulo de IA Preditiva
-- **Dataset**: AI4I 2020 Predictive Maintenance Dataset
-- **Algoritmos**: Decision Tree, Bagging Classifier, Random Forest
-- **Métricas**: Previsão de RUL (Remaining Useful Life), Pontuação de Risco
-- **Desempenho**: AUC 1.00, F1-Score 0.98 (Random Forest)
+- **Previsão de Falhas:** Desenvolver modelos de IA robustos para análise preditiva em componentes críticos.
+- **Assistência Operacional:** Implementar uma interface de RA intuitiva para treinamento e execução de manutenção em tempo real.
+- **Otimização de Missão:** **Reduzir drasticamente o tempo de inatividade** de equipamentos e **minimizar o erro humano** em ambientes de alto estresse e microgravidade.
 
-#### 2. Módulo de Realidade Aumentada
-- **Dispositivos**: Microsoft HoloLens
-- **Funcionalidades**:
-  - Rastreamento por visão computacional
-  - Sobrepõe instruções passo a passo
-  - Visualização de dados preditivos em tempo real
-  - Guias de procedimento assistido
+---
 
-#### 3. Integração Orbital
-- **Processamento**: Edge computing com hardware rad-hard
-- **Protocolos**: Compatibilidade com MIL-STD-1553, CCSDS
-- **Latência**: Inferência determinística para manutenção crítica
+## 🛠️ Arquitetura do Sistema
 
-## Resultados e Performance
+A solução é composta por três módulos principais, projetados para operar de forma integrada e autônoma.
+
+### 1. Módulo de IA Preditiva
+
+Responsável por analisar dados de telemetria e prever a degradação de componentes.
+
+| Característica | Detalhe |
+| :--- | :--- |
+| **Dataset** | AI4I 2020 Predictive Maintenance Dataset (Simulação de falhas) |
+| **Algoritmos** | Decision Tree, Bagging Classifier, **Random Forest** (Modelo de Produção) |
+| **Métricas-Chave** | Previsão de RUL (Remaining Useful Life), Pontuação de Risco |
+| **Desempenho** | AUC 1.00, F1-Score 0.98 (Random Forest) |
+
+### 2. Módulo de Realidade Aumentada (RA)
+
+Fornece orientação visual e contextualizada para os astronautas durante os procedimentos.
+
+- **Dispositivo de Referência:** Microsoft HoloLens
+- **Funcionalidades:**
+    - **Rastreamento de Alta Precisão** por visão computacional.
+    - **Sobreposição de Instruções** passo a passo diretamente no componente.
+    - **Visualização em Tempo Real** de dados preditivos (RUL, Risco) no campo de visão.
+    - **Guias de Procedimento** assistido para manutenção complexa.
+
+### 3. Integração Orbital e Edge Computing
+
+Garante a operacionalidade e a baixa latência do sistema no ambiente espacial.
+
+- **Processamento:** **Edge Computing** com hardware *rad-hard* (resistente à radiação) para inferência local.
+- **Protocolos:** Compatibilidade com padrões de comunicação espacial (MIL-STD-1553, CCSDS).
+- **Latência:** Inferência determinística e de baixa latência (< 100ms) para ações críticas.
+
+---
+
+## 📈 Resultados e Performance
 
 ### Desempenho dos Modelos de IA
 
+A escolha do modelo **Random Forest** foi validada por sua performance superior e robustez, essencial para aplicações de missão crítica.
+
 | Modelo | Acurácia | AUC | F1-Score | Robustez |
-|--------|----------|-----|----------|----------|
+| :--- | :--- | :--- | :--- | :--- |
 | Decision Tree | 96.5% | 0.96 | 0.92 | Baixa |
 | Bagging Classifier | 97.8% | 0.99 | 0.96 | Média |
 | **Random Forest** | **98.1%** | **1.00** | **0.98** | **Alta** |
 
-### Impacto Esperado da RA
+### Impacto Operacional Comprovado da RA
+
+O uso da Realidade Aumentada é suportado por estudos que demonstram seu potencial transformador na manutenção.
 
 | Métrica | Melhoria Esperada | Fonte |
-|---------|-------------------|-------|
-| Tempo de Execução | 25-40% | [Maintwiz 2024] |
-| Taxa de Erro Humano | 50-80% | [IEEE 2024] |
-| Retenção de Treinamento | 15-30% | [IJIRCCE 2023] |
-
-## Casos de Uso
-
-### Manutenção em Control Moment Gyros (CMGs)
-
-**Problema**: Degradação de mancais em vácuo
-**Solução AMIA**:
-1. **IA detecta**: Aumento de torque residual, assimetrias de vibração
-2. **RA orienta**: Destaca parafusos específicos, exibe torque necessário
-3. **Resultado**: Reparo preciso com redução de 40% no tempo
-
-### Fluxo Operacional Típico
-Fase 1: Detecção (T-72h) → IA identifica anomalia
-Fase 2: Intervenção (T-24h) → Sistema gera ordem de serviço
-Fase 3: Execução → RA guia reparo passo a passo
-Fase 4: Validação → IA confirma normalização dos parâmetros
-
-
-##  Implementação Técnica
-
-## 📂 Estrutura do Projeto
-
-O código foi organizado de forma **modular**, garantindo clareza, escalabilidade e fácil manutenção.
-
-![Estrutura do Projeto](assets/estrutura.PNG)
+| :--- | :--- | :--- |
+| Tempo de Execução | **25% a 40%** de redução | [Maintwiz 2024] |
+| Taxa de Erro Humano | **50% a 80%** de minimização | [IEEE 2024] |
+| Retenção de Treinamento | **15% a 30%** de aumento | [IJIRCCE 2023] |
 
 ---
 
-# 🔧Ferramenta
+## 💡 Casos de Uso e Fluxo Operacional
 
-## Como Executar o Projeto
+### Exemplo: Manutenção em Control Moment Gyros (CMGs)
 
-Siga os passos abaixo para configurar o ambiente e executar o pipeline completo de treinamento e avaliação.
+Os CMGs são cruciais para o controle de atitude da ISS.
 
+| Etapa | Descrição |
+| :--- | :--- |
+| **Problema** | Degradação de mancais em vácuo, levando à falha catastrófica. |
+| **IA Detecta** | Aumento de torque residual e assimetrias de vibração (T-72h). |
+| **RA Orienta** | Projeta o procedimento de substituição, destacando parafusos e exibindo o torque exato necessário. |
+| **Resultado** | Reparo preciso, com **redução de 40% no tempo** e garantia de conformidade. |
 
-## ✅ Pré-requisitos
+### Fluxo Operacional Típico do AMIA
 
-- Python **3.9 ou superior**  
-- `pip` (gerenciador de pacotes do Python)  
----
-
-## 📂 Clonar o Repositório
-
-### A. Clona o repositório para uma pasta chamada "Bootcamp_US"
-```bash
-git clone https://github.com/LeonardoCorreia08/Bootcamp_US.git
-```
-### B. Entra na pasta que acabou de ser criada
-```
-cd Bootcamp_US
-```
-## Passos para Execução
-```
-Criar um Ambiente Virtual (Recomendado)
-```
-### Cria o ambiente virtual
-```
-python -m venv venv
-```
-### Ativa o ambiente (Linux/macOS)
-```
-source venv/bin/activate
-```
-### Ativa o ambiente (Windows)
-```
-.\venv\Scripts\activate
-```
-
-### Instalar as Dependências
-O arquivo requirement.txt contém todas as bibliotecas necessárias.
-```
-pip install -r requirement.txt
-```
-### Inicializar o Projeto
-
-📌 Para rodar o pipeline completo, basta executar:
-```bash
-python main.py
-```
-✅ Pronto! O ambiente estará configurado e o projeto inicializado corretamente.
-
-### Executar o Pipeline Principal
-
-O script `main.py` é responsável por **orquestrar todo o pipeline de Machine Learning**.  
-Ao executá-lo, as seguintes etapas são realizadas automaticamente, de forma sequencial:
-
-1. **Configuração** – Carregamento dos parâmetros do projeto.  
-2. **Pré-processamento** – Limpeza, transformação e balanceamento dos dados.  
-3. **Treinamento** – Treino do modelo de Machine Learning definido.  
-4. **Avaliação** – Cálculo das métricas de performance (Accuracy, F1, etc.) e geração de relatórios.  
-5. **Persistência** – Salvamento do modelo final em `models/` para uso futuro (API, dashboards, etc.).
-
-✅ Isso garante que todas as etapas — configuração → pré-processamento → treino → avaliação → salvamento — sejam executadas em um único fluxo contínuo.
+1.  **Fase 1: Detecção (T-72h)** → O Módulo de IA identifica uma anomalia e prevê a falha.
+2.  **Fase 2: Intervenção (T-24h)** → O sistema gera uma ordem de serviço digital e o guia de RA correspondente.
+3.  **Fase 3: Execução** → O astronauta é guiado pelo sistema de RA, passo a passo.
+4.  **Fase 4: Validação** → A IA confirma a normalização dos parâmetros e o sucesso da manutenção.
 
 ---
 
-### Docker
-Docker é uma plataforma de contêinerização que permite criar, implantar e executar aplicativos em contêineres. É amplamente utilizado para garantir que os ambientes de desenvolvimento e produção sejam consistentes.
+## 💻 Guia de Execução e Instalação
 
-- **Principais Características**: Portabilidade, consistência de ambiente, isolamento de aplicativos.
-- **Casos de Uso**: Implantação de aplicações, isolamento de ambientes de desenvolvimento.
-- **Links**:
-- [Docker Official Site](https://www.docker.com/)
-- [Docker Documentation](https://docs.docker.com/)
+Este guia detalha como configurar e executar o pipeline de Machine Learning e o Dashboard de visualização.
 
-Se estiver utilizando Windows, você pode inicializar rapidamente com o script:
-```
-QUICK-START-Windows.bat
-```
+### 📂 Estrutura do Projeto
 
-<img src="assets/docker.PNG" width="400">
+O código foi organizado de forma **modular** para garantir clareza, escalabilidade e fácil manutenção.
 
-
-### 📊 Dashboard de Manutenção Preditiva - Streamlit
-
-Este dashboard em **Streamlit** permite visualizar e interagir com o modelo de **Manutenção Preditiva**, aplicando predições e exibindo métricas de desempenho.
----
-### Pré-requisitos
-
-- Python **3.9 ou superior**
-- `pip` instalado
-- Dependências listadas no arquivo `requirements.txt`
----
-### Como Executar o Dashboard
-
-1. **Instale as Dependências**
-Se ainda não tiver instalado as bibliotecas necessárias:
-```bash
-pip install -r requirements.txt
-```
-2. **Execute o Streamlit**
-O arquivo principal da aplicação é o app.py.
-Para iniciar o dashboard, basta rodar:
- ```
-streamlit run app.py
- ```
-3. **Acesse no Navegador**
-Após iniciar, o Streamlit abrirá automaticamente em:
- ```
-http://localhost:8501
- ```
-<img src="assets/streamlit.PNG" width="400">
-
-### 📊 Dashboard de Integração com API
-
-Este script (`dash.py`) conecta o modelo treinado à **API oficial do Bootcamp**, gerando predições no formato esperado e enviando para avaliação automática.
----
-### Como Executar
-No terminal, rode:
-```bash
-python dash.py
-```
-
-# 📉 Percurso Analítico
-
-[Análise Exploratória](https://github.com/LeonardoCorreia08/HBR/blob/main/resultado/Analise.md)
-
-[Online](https://colab.research.google.com/drive/1gHTJ6rKk-_u5WLWe8Mzz09vRgxUXg1bO#scrollTo=6pXKiTte9kXx&uniqifier=1)
-
-[Relatório](https://github.com/LeonardoCorreia08/Bootcamp_US/blob/main/relatorio_manutencao_preditiva.html)
-
----
-# 💻 Tecnologias Utilizadas
----
-
-- **Linguagem**: Python  
-- **Manipulação e Análise de Dados**: Pandas, Numpy  
-- **Visualização de Dados**: Matplotlib, Seaborn  
-- **Machine Learning / Modelagem**: Scikit-learn, Imbalanced-learn  
-- **Análise Exploratória**: Ydata-profiling  
-- **Persistência de Modelos**: Joblib, Pickle  
-- **APIs e Deploy**: FastAPI, Uvicorn  
-- **Dashboard**: Streamlit  
-- **Ambiente e Automação**: Docker, GitHub Actions
-
-## Configuração de RA
-
-- Rastreamento: IMU + visão computacional.
-- Renderização: Otimizada para microgravidade.
-- Latência: < 50ms para interação crítica.
-
-## Estrutura do Projeto
 ```
 amia-iss/
 ├── data/
@@ -246,63 +120,112 @@ amia-iss/
 │   └── models/              # Modelos treinados
 ├── src/
 │   ├── prediction/          # Módulos de IA preditiva
-│   ├── ar_interface/        # Sistema de realidade aumentada
-│   ├── integration/         # Integração com sistemas ISS
+│   ├── ar_interface/        # Sistema de realidade aumentada (Simulação)
+│   ├── integration/         # Integração com sistemas ISS (Simulação)
 │   └── utils/               # Utilitários comuns
 ├── docs/                    # Documentação técnica
 ├── tests/                   # Testes unitários e integração
-└── Iss-Visualizador/        # Ambientes de simulação
+└── Iss-Visualizador/        # Ambientes de simulação e visualização
 ```
-## Visualizacao do ambiente 
 
-[Projeto](https://iss-visualizador.vercel.app/)
+<p align="center">
+  <img src="./assets/estrutura.PNG" width="500" alt="Estrutura do Projeto">
+</p>
+
+### ✅ Pré-requisitos
+
+- Python **3.9 ou superior**
+- `pip` (gerenciador de pacotes do Python)
+- **Para o Módulo RA (Simulação):** Unity 2022.3+, TensorFlow 2.8+, OpenCV 4.5+
+
+### 📥 Instalação
+
+1.  **Clonar o Repositório:**
+    ```bash
+    git clone https://github.com/LeonardoCorreia08/HBR.git amia-iss
+    cd amia-iss
+    ```
+
+2.  **Criar e Ativar o Ambiente Virtual (Recomendado):**
+    ```bash
+    python -m venv venv
+    # Linux/macOS
+    source venv/bin/activate
+    # Windows
+    .\venv\Scripts\activate
+    ```
+
+3.  **Instalar as Dependências:**
+    O arquivo `requirements.txt` contém todas as bibliotecas necessárias para os módulos de IA e Dashboard.
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### ⚙️ Execução do Pipeline de IA
+
+O script `main.py` orquestra o pipeline completo de Machine Learning (Configuração → Pré-processamento → Treino → Avaliação → Salvamento).
+
+```bash
+python main.py
+```
+
+### 📊 Execução do Dashboard Streamlit
+
+Visualize e interaja com o modelo de Manutenção Preditiva.
+
+1.  **Execute o Streamlit:**
+    ```bash
+    streamlit run app.py
+    ```
+2.  **Acesse no Navegador:**
+    O dashboard estará disponível em `http://localhost:8501`.
+
+<p align="center">
+  <img src="assets/streamlit.PNG" width="400" alt="Dashboard Streamlit">
+</p>
+
+### 🔗 Outras Execuções
+
+- **Execução da API de Avaliação:**
+    ```bash
+    python dash.py
+    ```
+- **Execução da Simulação de RA:**
+    ```bash
+    python src/ar_interface/simulate_ar.py
+    ```
+
 ---
-<p align="center"><img src="./assets/visao 1.PNG" width="500"></p>
+
+## 🌐 Visualização e Recursos Adicionais
+
+- **Visualizador do Ambiente ISS:** [Acesse o Projeto](https://iss-visualizador.vercel.app/)
+- **Análise Exploratória de Dados (EDA):** [Acesse o Relatório](https://github.com/LeonardoCorreia08/HBR/blob/main/resultado/Analise.md)
+- **Relatório Técnico Completo:** [Acesse o HTML](https://github.com/LeonardoCorreia08/Bootcamp_US/blob/main/relatorio_manutencao_preditiva.html)
+
+<p align="center"><img src="./assets/visao 1.PNG" width="500" alt="Visualização do Ambiente 1"></p>
+<p align="center"><img src="./assets/visao2.PNG" width="500" alt="Visualização do Ambiente 2"></p>
+
 ---
-<p align="center"><img src="./assets/visao2.PNG" width="500"></p>
+
+## 💻 Tecnologias Utilizadas
+
+| Categoria | Tecnologias |
+| :--- | :--- |
+| **Linguagem** | Python |
+| **Data Science** | Pandas, Numpy, Scikit-learn, Imbalanced-learn |
+| **Visualização** | Matplotlib, Seaborn, Ydata-profiling |
+| **APIs e Deploy** | FastAPI, Uvicorn, Docker |
+| **Dashboard** | Streamlit |
+| **RA (Simulação)** | Unity, TensorFlow, OpenCV |
+| **Automação** | GitHub Actions |
+
 ---
 
-## Instalação e Uso
-Pré-requisitos
-Python 3.8+
+## 🤝 Contribuição
 
-TensorFlow 2.8+
+Interessado em contribuir? Entre em contato com o autor para discutir oportunidades de colaboração.
 
-OpenCV 4.5+
+## 📄 Licença
 
-Unity 2022.3+ (para módulo RA)
-
-## Instalação
-```
-git clone https://github.com/seu-usuario/amia-iss.git
-cd amia-iss
-pip install -r requirements.txt
-```
-## Execução
-# Treinamento do modelo de IA
-```
-python src/prediction/train_model.py
-```
-# Simulação do sistema de RA
-```
-python src/ar_interface/simulate_ar.py
-```
-
-## Validação e Testes
-### Ambientes de Teste
-- Simulação Terra: Validação funcional completa
-- Ambiente Análogo Espacial: Testes em microgravidade simulada
-- ISS (Futuro): Implementação operacional
-
-## Métricas de Validação
-- Acurácia de Previsão: > 97%
-- Latência de Inferência: < 100ms
-- Precisão de Rastreamento RA: < 2mm
-- Tempo de Resposta do Sistema: < 5 segundos
-
-## Contribuição
-Interessado em contribuir? Veja nosso: entre em contato
-
-## Licença
-Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para detalhes.
-
+Este projeto está licenciado sob a **Licença MIT** - veja o arquivo `LICENSE` para detalhes.
