@@ -201,7 +201,7 @@ Visualize e interaja com o modelo de Manutenção Preditiva.
 
 - **Visualizador do Ambiente ISS:** [Acesse o Projeto](https://iss-visualizador.vercel.app/)
 - **Análise Exploratória de Dados (EDA):** [Acesse o Relatório](https://github.com/LeonardoCorreia08/HBR/blob/main/resultado/Analise.md)
-- **Relatório Técnico Completo:** [Acesse o HTML](https://github.com/LeonardoCorreia08/Bootcamp_US/blob/main/relatorio_manutencao_preditiva.html)
+- **Relatório Técnico Completo:** [Acesse o HTML](https://github.com/LeonardoCorreia08/HBR/blob/main/relatorio_manutencao_preditiva.html)
 
 <p align="center"><img src="./assets/visao 1.PNG" width="500" alt="Visualização do Ambiente 1"></p>
 <p align="center"><img src="./assets/visao2.PNG" width="500" alt="Visualização do Ambiente 2"></p>
