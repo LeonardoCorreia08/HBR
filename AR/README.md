@@ -197,8 +197,8 @@ rotationSpeed: 0.4                 // Sensibilidade da rotação
 ### Desenvolvimento
 
 * **Desenvolvedor:** Leonardo Correia
-* **Projeto:** Curso de Realidade Aumentada - Unidade 5
-* **Data de Entrega:** 21/11/2025
+* **Projeto:** Curso de ia aeroespacial 
+
 
 ##  Deploy
 
