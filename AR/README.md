@@ -234,7 +234,7 @@ python -m http.server 8000
 
 * **Desenvolvedor:** Leonardo Correia
 * **Data:** Novembro 2025
-* **Projeto:** Curso de Realidade Aumentada - Unidade 5
+
 
 Contribuições são bem-vindas! Se você encontrar algum problema, tiver sugestões ou quiser adicionar novos recursos, fique à vontade para abrir uma issue ou enviar um pull request..
 
